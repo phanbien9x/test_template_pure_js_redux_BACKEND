@@ -22,7 +22,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:5000/api',
+        url: 'https://test-redux-saga-api.herokuapp.com/api',
       },
     ],
   },
