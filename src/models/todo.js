@@ -56,12 +56,12 @@ export function findById(id, result) {
     });
 }
 export function updateById(id, body, result) {
-  Todo.updateOne({ _id: id }, body)
+  Todo.updateOne({ id }, body)
     .then((res) => {
       console.log(res);
       if (res.matchedCount > 0) {
-        console.log('updated todo: ', { id: id, ...body });
-        result(null, { id: id, ...body });
+        console.log('updated todo: ', { id, ...body });
+        result(null, { id, ...body });
       } else {
         console.log('not found todo: ', id);
         result({ kind: 'not_found' }, null);
@@ -73,7 +73,7 @@ export function updateById(id, body, result) {
     });
 }
 export function remove(id, result) {
-  Todo.deleteOne({ _id: id })
+  Todo.deleteOne({ id })
     .then((res) => {
       if (res.deletedCount > 0) {
         console.log('deleted todo with id: ', id);
